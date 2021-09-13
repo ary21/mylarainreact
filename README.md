@@ -6,7 +6,6 @@ Starter Kit Project with Laravel Inertia React JS
 # Laravel React Inertia Tailwind starter kit
 Improve from : https://github.com/kachidk/React-Inertia-Laravel-Tailwind-starter-kit
 
-
 ## Includes Laravel Fortify for authentication 
 
 ## Introduction
