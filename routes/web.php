@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Inertia\Inertia;
 
 use App\Http\Controllers\Masters\ProfileController;
+use App\Http\Controllers\Masters\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,15 +27,14 @@ Route::get('/', function () {
     ]);
 });
 
-
 Route::group(['middleware' => 'auth'], function() {
     Route::inertia('/home', 'HomePage');
-    Route::inertia('/users', 'UserPage');
     Route::inertia('/test', 'TestPage');
+
+    Route::resource('/users', UserController::class);
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::delete('/profilePhotoDelete', [ProfileController::class, 'deleteProfilePhoto'])->name('profilePhotoDelete');
     Route::put('/profilePhotoUpdate', [ProfileController::class, 'updateProfilePhoto'])->name('profilePhotoUpdate');
     Route::delete('/profileDelete', [ProfileController::class, 'deleteProfile'])->name('profileDelete');
-
 });

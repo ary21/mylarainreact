@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('UserPage/Form');
+        return Inertia::render('UserPage/FormUser');
     }
 
     /**
@@ -55,7 +55,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return Inertia::render('UserPage/Show', compact('user'));
+        return Inertia::render('UserPage/ShowUser', compact('user'));
     }
 
     /**
@@ -66,7 +66,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return Inertia::render('UserPage/FormUser', compact('user'));
     }
 
     /**
