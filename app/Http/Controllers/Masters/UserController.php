@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Masters;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Inertia\Inertia;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -14,7 +18,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('id', 'desc')->get();
+        // TODO :: should be use paginate
+
+        return Inertia::render('UserPage/index', compact('users'));
     }
 
     /**
@@ -24,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('UserPage/Form');
     }
 
     /**
@@ -46,7 +53,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return Inertia::render('UserPage/Show', compact('user'));
     }
 
     /**

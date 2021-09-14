@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Masters;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
 use Inertia\Inertia;
+use App\Models\User;
 
 class profileController extends Controller
 {
     public function index()
     {
-        return Inertia::render('profile/Show');
+        return Inertia::render('ProfilePage/Show');
     }
 
     public function updateProfilePhoto(Request $request)

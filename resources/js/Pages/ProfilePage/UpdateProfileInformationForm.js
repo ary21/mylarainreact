@@ -1,16 +1,15 @@
 import React,{useState, useEffect, useRef} from 'react';
-import{usePage} from '@inertiajs/inertia-react';
+import {usePage} from '@inertiajs/inertia-react';
 import {Inertia} from '@inertiajs/inertia';
 
 function UpdateProfileInformationForm() {
-  const [nameForm, setNameForm] = useState()
-  const [emailForm, setEmailForm] = useState()
+  const [nameForm, setNameForm] = useState();
+  const [emailForm, setEmailForm] = useState();
   const initialName = useRef();
   const initialEmail = useRef();
 
   const auth = usePage().props;
   const errors = usePage().props.errors;
-
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -24,9 +23,9 @@ function UpdateProfileInformationForm() {
   useEffect(() => {
     initialName.current.value = auth.user.name;
     setNameForm(auth.user.name);
+
     initialEmail.current.value = auth.user.email;
     setEmailForm(auth.user.email);
-
   }, [])
 
 

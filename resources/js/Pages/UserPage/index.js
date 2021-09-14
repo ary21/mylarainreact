@@ -1,7 +1,19 @@
-import React from 'react';
-import Layout from '../layouts/Layout';
+import React,{useState, useEffect, useRef} from 'react';
+import {usePage} from '@inertiajs/inertia-react';
+import Layout from '../../layouts/Layout';
 
 function UserPage() {
+  const [users, setUsers] = useState();
+  
+  const data = usePage().props;
+
+  useEffect(() => {
+    setUsers(data.users);
+  },[]);
+
+  console.clear();
+  console.log(users);
+
   return (
     <div>
       <Layout>

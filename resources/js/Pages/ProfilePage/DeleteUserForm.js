@@ -1,6 +1,6 @@
 import React, {useState,useRef} from 'react'
 import Modal from './components/Modal'
-import { Inertia } from '@inertiajs/inertia';
+import {Inertia} from '@inertiajs/inertia';
 import {usePage} from '@inertiajs/inertia-react';
 
 function DeleteUserForm() {
